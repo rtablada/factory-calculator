@@ -6,5 +6,5 @@ export interface Product extends HasId {
   name: string;
 
   recipes: Recipe[];
-allowedTransports: Transport[]
+  allowedTransports: Transport[];
 }
