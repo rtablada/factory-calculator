@@ -1,10 +1,10 @@
-import { Building } from "./building";
-import { HasId } from "./const";
-import { Product } from "./product";
+import { Building } from './building';
+import { HasId } from './const';
+import { Product } from './product';
 
 export interface RecipeProduct {
   numberPerTick: number;
-  resource: Product;
+  product: Product;
 }
 
 export interface Recipe extends HasId {

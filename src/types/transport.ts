@@ -1,9 +1,9 @@
-import { HasId } from "./const";
+import { HasId } from './const';
 
 export interface Transport extends HasId {
   name: string;
 
   maxThroughput: number;
-  idlePower: number;
-  workingPower: number;
+  idlePower?: number;
+  workingPower?: number;
 }

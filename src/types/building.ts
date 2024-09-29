@@ -1,4 +1,4 @@
-import { HasId } from "./const";
+import { HasId } from './const';
 
 export interface Building extends HasId {
   name: string;
