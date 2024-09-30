@@ -4,11 +4,16 @@ import { Building } from '../types/building';
 
 export interface InputRatioResult {
   inputs: RecipeProduct[];
-  building: {
+  byproducts: RecipeProduct[];
+  buildingInfo: {
     building: Building;
     count: number;
   };
-  byproducts: RecipeProduct[];
+  powerInfo: {
+    idlePower: number;
+    maxPower: number;
+    averageExpectedPower: number;
+  };
 }
 
 export function calculateInputRatio(
@@ -41,19 +46,27 @@ export function calculateInputRatio(
   const multiplier =
     desiredOutput.numberPerTick / relevantOuputRecipe.numberPerTick;
 
+  const buildingCount = Math.ceil(multiplier);
+
   return {
     inputs: recipe.inputs.map((input) => ({
       product: input.product,
       numberPerTick: input.numberPerTick * multiplier,
     })),
-    building: {
+    buildingInfo: {
       building: recipe.building,
-      count: Math.ceil(multiplier),
+      count: buildingCount,
     },
 
     byproducts: byproducts.map((byproduct) => ({
       product: byproduct.product,
       numberPerTick: byproduct.numberPerTick * multiplier,
     })),
+
+    powerInfo: {
+      idlePower: recipe.building.idlePower * buildingCount,
+      maxPower: recipe.building.workingPower * buildingCount,
+      averageExpectedPower: recipe.building.workingPower * multiplier,
+    },
   };
 }

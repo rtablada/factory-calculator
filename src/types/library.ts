@@ -4,6 +4,7 @@ import { Recipe } from './recipe';
 import { Transport } from './transport';
 
 export interface Library {
+  getBestRecipe(product: Product): Recipe | undefined;
   getBuildings(): Promise<Building[]>;
   getBuilding(id: string): Promise<Building | undefined>;
   getProducts(): Promise<Product[]>;

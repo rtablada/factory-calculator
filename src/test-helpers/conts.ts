@@ -10,6 +10,15 @@ export const MK1_BELT: Transport = {
   maxThroughput: 60,
 };
 
+export const MK1_MINER: Building = {
+  id: 'mk1-miner',
+  name: 'Mk1 Miner',
+  maxInputs: 0,
+  maxOutputs: 1,
+  idlePower: 1,
+  workingPower: 4,
+};
+
 export const SMELTER: Building = {
   id: 'smelter',
   name: 'Smelter',
@@ -33,6 +42,14 @@ export const IRON_ORE: Product = {
   name: 'Iron Ore',
   recipes: [],
   allowedTransports: [],
+};
+
+export const IRON_ORE_RECIPE: Recipe = {
+  id: 'iron-ore-recipe',
+  name: 'Iron Ore',
+  inputs: [],
+  outputs: [{ product: IRON_ORE, numberPerTick: 60 }],
+  building: MK1_MINER,
 };
 
 export const IRON_INGOT: Product = {
@@ -71,5 +88,5 @@ export const STANDARD_LIBRARY = createLibrary({
   transports: [MK1_BELT],
   buildings: [SMELTER, CONSTRUCTOR],
   products: [IRON_ORE, IRON_INGOT, IRON_PLATE],
-  recipes: [IRON_INGOT_RECIPE, IRON_PLATE_RECIPE],
+  recipes: [IRON_ORE_RECIPE, IRON_INGOT_RECIPE, IRON_PLATE_RECIPE],
 });

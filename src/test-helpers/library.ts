@@ -18,10 +18,14 @@ export function createLibrary({
   return {
     getBuildings: async () => buildings,
     getBuilding: async (id: string) => buildings.find((b) => b.id === id),
+
     getProducts: async () => products,
     getProduct: async (id: string) => products.find((p) => p.id === id),
+
     getRecipes: async () => recipes,
     getRecipe: async (id: string) => recipes.find((r) => r.id === id),
+    getBestRecipe: (product: Product) =>
+      recipes.find((r) => r.outputs.some((o) => o.product.id === product.id)),
     getTransports: async () => transports,
     getTransport: async (id: string) => transports.find((t) => t.id === id),
   };

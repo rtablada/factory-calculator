@@ -21,7 +21,10 @@ test('can calculate 1:1 ratios', () => {
     },
   );
 
-  expect(perfectRatioResult.building).toEqual({ building: SMELTER, count: 1 });
+  expect(perfectRatioResult.buildingInfo).toEqual({
+    building: SMELTER,
+    count: 1,
+  });
   expect(perfectRatioResult.inputs).toEqual([
     { product: IRON_ORE, numberPerTick: 30 },
   ]);
@@ -36,7 +39,10 @@ test('can calculate 1:1 ratios', () => {
     },
   );
 
-  expect(underRatioResult.building).toEqual({ building: SMELTER, count: 1 });
+  expect(underRatioResult.buildingInfo).toEqual({
+    building: SMELTER,
+    count: 1,
+  });
   expect(underRatioResult.inputs).toEqual([
     { product: IRON_ORE, numberPerTick: 10 },
   ]);
@@ -51,7 +57,7 @@ test('can calculate 1:1 ratios', () => {
     },
   );
 
-  expect(multipleBuildingResult.building).toEqual({
+  expect(multipleBuildingResult.buildingInfo).toEqual({
     building: SMELTER,
     count: 4,
   });
@@ -69,7 +75,7 @@ test('can calculate 1:1 ratios', () => {
     },
   );
 
-  expect(oddRatioResult.building).toEqual({
+  expect(oddRatioResult.buildingInfo).toEqual({
     building: SMELTER,
     count: 4,
   });
@@ -89,7 +95,7 @@ test('can calculate non-1:1 ratios', () => {
     },
   );
 
-  expect(perfectRatioResult.building).toEqual({
+  expect(perfectRatioResult.buildingInfo).toEqual({
     building: CONSTRUCTOR,
     count: 1,
   });
@@ -107,7 +113,7 @@ test('can calculate non-1:1 ratios', () => {
     },
   );
 
-  expect(underRatioResult.building).toEqual({
+  expect(underRatioResult.buildingInfo).toEqual({
     building: CONSTRUCTOR,
     count: 1,
   });
@@ -125,7 +131,7 @@ test('can calculate non-1:1 ratios', () => {
     },
   );
 
-  expect(multipleBuildingResult.building).toEqual({
+  expect(multipleBuildingResult.buildingInfo).toEqual({
     building: CONSTRUCTOR,
     count: 6,
   });
@@ -143,7 +149,7 @@ test('can calculate non-1:1 ratios', () => {
     },
   );
 
-  expect(oddRatioResult.building).toEqual({
+  expect(oddRatioResult.buildingInfo).toEqual({
     building: CONSTRUCTOR,
     count: 6,
   });
